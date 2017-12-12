@@ -15,4 +15,12 @@ export default class Creep extends Model {
     trabajar() {
         console.log('No tengo chamba tio')
     }
+
+    setSpawn(spawn) {
+        this.spawn = spawn;
+    }
+
+    getSpawn() {
+        return this.spawn;
+    }
 }

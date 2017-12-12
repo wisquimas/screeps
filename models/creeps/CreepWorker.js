@@ -2,6 +2,7 @@ import Creep from "./Creep";
 export default class CreepWorker extends Creep {
     trabajar() {
         let creep = this.getMe();
+        let spawn = this.getSpawn();
 
         if (creep.carry.energy < creep.carryCapacity) {
             let sources = creep.room.find(FIND_SOURCES);
@@ -9,8 +10,8 @@ export default class CreepWorker extends Creep {
                 creep.moveTo(sources[0]);
             }
         } else {
-            if (creep.transfer(Game.spawns['Spawn1'], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(Game.spawns['Spawn1']);
+            if (creep.transfer(spawn, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(spawn);
             }
         }
     }
