@@ -1,6 +1,7 @@
 import CreepWorker from "../creeps/CreepWorker";
 import CreepUpgrader from "../creeps/CreepUpgrader";
 import Creep from "../creeps/Creep";
+import CreepBuilder from "../creeps/CreepBuilder";
 
 export default class Spawn {
 
@@ -30,6 +31,7 @@ export default class Spawn {
 
         let cantidadWorkers = 0;
         let cantidadUpgraders = 0;
+        let cantidadBuilders = 0;
         let resto = 0;
 
         for (let nameCreep in creeps) {
@@ -44,6 +46,9 @@ export default class Spawn {
                             break;
                         case 'upgrader':
                             cantidadUpgraders++;
+                            break;
+                        case 'builder':
+                            cantidadBuilders++;
                             break;
                         default:
                             resto++;
@@ -62,6 +67,13 @@ export default class Spawn {
         if (cantidadUpgraders < 1) {
             try {
                 CreepUpgrader.CrearTrabajador(Matrix);
+            } catch (e) {
+                console.log(e.message)
+            }
+        }
+        if (cantidadBuilders < 1) {
+            try {
+                CreepBuilder.CrearTrabajador(Matrix);
             } catch (e) {
                 console.log(e.message)
             }
@@ -91,6 +103,9 @@ export default class Spawn {
                             break;
                         case 'upgrader':
                             creepObject = new CreepUpgrader(creep);
+                            break;
+                        case 'builder':
+                            creepObject = new CreepBuilder(creep);
                             break;
                         default:
                             creepObject = new Creep(creep);
