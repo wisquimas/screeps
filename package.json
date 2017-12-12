@@ -1,0 +1,29 @@
+{
+  "name": "Screeps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify -t [babelify --presets [es2015 react] ] index.js > main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wisquimas/ilse-jara.git"
+  },
+  "author": "wisquimas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wisquimas/ilse-jara/issues"
+  },
+  "homepage": "https://github.com/wisquimas/ilse-jara#readme",
+  "dependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "jquery": "^3.1.0",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "uid": "0.0.2"
+  }
+}
