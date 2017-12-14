@@ -2,6 +2,7 @@ import Spawn from "../models/rooms/Spawn";
 
 export default class MatrixService {
     constructor() {
+        //todo iniciar rooms
         this.iniciarSpawns();
     }
 
@@ -40,9 +41,21 @@ export default class MatrixService {
      * Inicializa a la colonia
      */
     init() {
+        this.LimpiarMemoria();
+        //todo por cada room debe de haber un spawn
         let spawns = this.getSpawns();
         spawns.forEach(function (spawn) {
             spawn.init();
         })
+    }
+
+    LimpiarMemoria() {
+        for (let name in Memory.creeps) {
+            if (Memory.creeps.hasOwnProperty(name)) {
+                if (!Game.creeps[name]) {
+                    delete Memory.creeps[name];
+                }
+            }
+        }
     }
 }
